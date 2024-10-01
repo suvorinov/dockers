@@ -1,0 +1,12 @@
+services:
+
+  scrapyd:
+    image: suvorinov/scrapyd
+    container_name: scrapyd
+    ports:
+      - "6800:6800"
+    volumes:
+      - ${HOME}/var/www/assets:/root/var/www/assets  
+      - ${HOME}/.cache/scrapyd:/var/lib/scrapyd
+      - /usr/local/lib/python3.11/dist-packages
+    restart: unless-stopped
