@@ -1,16 +1,32 @@
 scrapyd
 =======
 
-[Scrapyd](https://scrapyd.readthedocs.io/) — это приложение для развертывания и запуска [Scrapy](https://docs.scrapy.org/en/latest/index.html#)-проектов. Оно позволяет вам развертывать(загружать) ваши проекты и
+[Scrapyd](https://scrapyd.readthedocs.io/) — это сервис для развертывания и запуска [Scrapy](https://docs.scrapy.org/en/latest/index.html#)-проектов. Позволяет вам развертывать(загрузить) ваши проекты и
 управлять ими с помощью JSON API
 
 Этот образ основан `debian:bookworm`, предустановлены следующие пакеты:
 
-- scrapy
-- scrapyd
-- scrapy-poet
-- scrapy-playwright
+- [scrapy](https://docs.scrapy.org/en/latest/index.html#)
+- [scrapyd](https://scrapyd.readthedocs.io/)
+- [scrapy-poet](https://scrapy-poet.readthedocs.io/en/stable/#)
+- [scrapy-playwright](https://github.com/scrapy-plugins/scrapy-playwright)
 
+## docker-compose.yml
+
+```yaml
+services:
+
+  scrapyd:
+    image: suvorinov/scrapyd
+    container_name: scrapyd
+    ports:
+      - "6800:6800"
+    volumes:
+      - ${HOME}/var/www/assets:/root/var/www/assets  
+      - ${HOME}/.cache/scrapyd:/var/lib/scrapyd
+      - /usr/local/lib/python3.11/dist-packages
+    restart: unless-stopped
+```
 
 ## Запустить сервис
 
