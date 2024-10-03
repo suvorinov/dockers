@@ -7,7 +7,10 @@ LABEL org.opencontainers.image.authors="Oleg Suvorinov <suvorinovoleg.yandex.ru>
 LABEL org.opencontainers.image.description="Cервис для развертывания и запуска scrapy spider"
 LABEL org.opencontainers.image.created="02-10-2024 13:11:08"
 
-ENV TZ=Europe/Moscow
+ENV SCRAPYD_USERNAME=${SCRAPYD_USERNAME}
+ENV SCRAPYD_PASSWORD=${SCRAPYD_PASSWORD}
+ARG TIME_ZONE="Europe/Moscow"
+ENV TIME_ZONE=$TIME_ZONE
 
 SHELL ["/bin/bash", "-c"]
 
@@ -33,7 +36,7 @@ RUN set -xe \
                           vim-tiny \
     && rm -f /usr/lib/python3.11/EXTERNALLY-MANAGED \
     && pip install --no-cache-dir dateparser scrapy scrapyd scrapy-poet scrapy-playwright \
-    && playwright install firefox
+    && playwright install firefox \
     && playwright install-deps firefox \
     && mkdir -p /etc/bash_completion.d \
     && curl -sSL https://github.com/scrapy/scrapy/raw/master/extras/scrapy_bash_completion -o /etc/bash_completion.d/scrapy_bash_completion \
@@ -51,7 +54,7 @@ RUN set -xe \
     && apt-get clean -y \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* \
-    && cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+    && cp /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo $TIME_ZONE > /etc/timezone
 
 COPY ./scrapyd.conf /etc/scrapyd/
 VOLUME /etc/scrapyd/ /var/lib/scrapyd/

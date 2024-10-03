@@ -3,6 +3,8 @@ services:
   scrapyd:
     image: suvorinov/scrapyd
     container_name: scrapyd
+    env_file:
+      - .env
     ports:
       - "6800:6800"
     volumes:

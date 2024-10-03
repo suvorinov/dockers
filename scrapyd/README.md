@@ -11,6 +11,8 @@ scrapyd
 - [scrapy-poet](https://scrapy-poet.readthedocs.io/en/stable/#)
 - [scrapy-playwright](https://github.com/scrapy-plugins/scrapy-playwright)
 
+Также предустановлен fitefox и все зависимости
+
 ## docker-compose.yml
 
 ```yaml
@@ -19,6 +21,8 @@ services:
   scrapyd:
     image: suvorinov/scrapyd
     container_name: scrapyd
+    env_file:
+      - .env
     ports:
       - "6800:6800"
     volumes:

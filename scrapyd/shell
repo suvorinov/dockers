@@ -1,0 +1,7 @@
+#!/bin/bash
+# @Author: Suvorinov Oleg
+# @Date:   2024-02-10 15:30:18
+# @Last Modified by:   Suvorinov Oleg
+# @Last Modified time: 2024-02-10 15:30:18
+
+docker compose exec -it scrapyd bash
