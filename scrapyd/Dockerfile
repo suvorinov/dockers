@@ -7,10 +7,8 @@ LABEL org.opencontainers.image.authors="Oleg Suvorinov <suvorinovoleg.yandex.ru>
 LABEL org.opencontainers.image.description="Cервис для развертывания и запуска scrapy spider"
 LABEL org.opencontainers.image.created="02-10-2024 13:11:08"
 
-ENV SCRAPYD_USERNAME=${SCRAPYD_USERNAME}
-ENV SCRAPYD_PASSWORD=${SCRAPYD_PASSWORD}
 ARG TIME_ZONE="Europe/Moscow"
-ENV TIME_ZONE=$TIME_ZONE
+ENV TIME_ZONE=${TIME_ZONE}
 
 SHELL ["/bin/bash", "-c"]
 

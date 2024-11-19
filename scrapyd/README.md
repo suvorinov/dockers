@@ -10,8 +10,9 @@ scrapyd
 - [scrapyd](https://scrapyd.readthedocs.io/)
 - [scrapy-poet](https://scrapy-poet.readthedocs.io/en/stable/#)
 - [scrapy-playwright](https://github.com/scrapy-plugins/scrapy-playwright)
+- [mistune](https://mistune.lepture.com/en/latest/)
 
-Также предустановлен fitefox и все зависимости
+Также предустановлен firefox и все зависимости
 
 ## docker-compose.yml
 
@@ -39,5 +40,9 @@ services:
 ```bash
 docker compose up -d
 ```
+
+### Включить аутентификацию
+
+Установите username и password в scrapyd.conf (перед запуском).
 
 После развертывания scrapyd сервис доступен `http://your-ip:6800`.
