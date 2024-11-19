@@ -10,7 +10,6 @@ scrapyd
 - [scrapyd](https://scrapyd.readthedocs.io/)
 - [scrapy-poet](https://scrapy-poet.readthedocs.io/en/stable/#)
 - [scrapy-playwright](https://github.com/scrapy-plugins/scrapy-playwright)
-- [mistune](https://mistune.lepture.com/en/latest/)
 
 Также предустановлен firefox и все зависимости
 
